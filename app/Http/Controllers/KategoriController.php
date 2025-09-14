@@ -10,4 +10,15 @@ class KategoriController extends Controller
     {
         return view('kategori.index');
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama_kategori' => ['string', 'required','min:3', 'max:20'],
+            'deskripsi' => ['required'],
+        ]);
+
+        return $request;
+
+    }
 }

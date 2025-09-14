@@ -8,5 +8,6 @@ Route::get('/', function () {
 });
 
 Route::get('kategori', [KategoriController::class, 'index'])->name('kategori.index');
+Route::post('kategori', [KategoriController::class, 'store'])->name('kategori.store');
 
 Route::view('tampilan', 'template.app');

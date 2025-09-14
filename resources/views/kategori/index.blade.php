@@ -23,6 +23,12 @@
                 </button>
             </div>
         </div>
+
+        <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
         <div class="table-responsive">
             <table class="table table-hover table-striped">
                 <thead>
@@ -50,22 +56,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <form action="#" method="post">
+                <form action="{{ route('kategori.store') }}" method="post">
                     @csrf
-
                     <div class="modal-body">
                         <div class="form-group mt-2">
                             <label for="">Nama Kategori</label>
-                            <input type="text" name="nama_kategori" class="form-control">
+                            <input type="text" required name="nama_kategori" class="form-control">
                         </div>
-                         <div class="form-group mt-2">
+                        <div class="form-group mt-2">
                             <label for="">Deskripsi</label>
-                            <textarea name="deskripsi" class="form-control"></textarea>
+                            <textarea name="deskripsi" required class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
 
                 </form>
