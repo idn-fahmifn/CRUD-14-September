@@ -24,10 +24,21 @@
             </div>
         </div>
 
-        <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        {{-- menampilkan alert error --}}
+        @if ($errors->any())
+            <div class="alert alert-warning alert-dismissible fade show my-3" role="alert">
+                <strong>Gagal!</strong>
+                <ul>
+                    @foreach ($errors->all() as $item)
+                        <li>{{$item}}</li>
+                    @endforeach
+                </ul>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+
 
         <div class="table-responsive">
             <table class="table table-hover table-striped">
