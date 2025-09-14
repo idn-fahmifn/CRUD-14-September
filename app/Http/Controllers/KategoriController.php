@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -18,7 +19,12 @@ class KategoriController extends Controller
             'deskripsi' => ['required'],
         ]);
 
-        return $request;
+        Kategori::create([
+            'nama_kategori' => $request->nama_kategori,
+            'deskripsi' => $request->deskripsi
+        ]);
+        return redirect()->route('kategori.index')->with('success', "Kategori berhasil ditambahkan");
+        
 
     }
 }
